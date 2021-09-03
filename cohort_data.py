@@ -1,28 +1,28 @@
 # """Functions to parse a file containing student data."""
 
-# def all_houses(filename):
-#     """Return a set of all house names in the given file.
+def all_houses(filename):
+  """Return a set of all house names in the given file.
 
-#     For example:
-#       >>> unique_houses('cohort_data.txt')
-#       {"Dumbledore's Army", 'Gryffindor', ..., 'Slytherin'}
+  For example:
+    >>> unique_houses('cohort_data.txt')
+    {"Dumbledore's Army", 'Gryffindor', ..., 'Slytherin'}
 
-#     Arguments:
-#       - filename (str): the path to a data file
+  Arguments:
+    - filename (str): the path to a data file
 
-#     Return:
-#       - set[str]: a set of strings
-#     """
-# #houses = set()
-# #open the filename
-#   #the_file = open(filename)
-#   house_name = []
-#   for line in the_file:
-#     record = [the_file.split("|")]
-#     house_name.append(record[2])
+  Return:
+    - set[str]: a set of strings
+  """
+#houses = set()
+#open the filename
+  the_file = open(filename)
+  house_name = []
+  for line in the_file:
+    record = [the_file.split("|")]
+    house_name.append(record[2])
   
-#   houses = set(house_name)
-#   return houses
+  houses = set(house_name)
+  return houses
 
 
 def students_by_cohort(filename, cohort="All"):
@@ -67,8 +67,7 @@ def students_by_cohort(filename, cohort="All"):
       # append to student_list and concatenate index 0(first_name) and 1(last_name)
         student_list.append(record[0] + record[1])
     #students = []
-
-    # TODO: replace this with your code
+# 
 
     return sorted(student_list)
 
@@ -111,9 +110,15 @@ def all_names_by_house(filename):
     slytherin = []
     ghosts = []
     instructors = []
+#open the file
 
-    # TODO: replace this with your code
+#for loop that splits each line into a list
 
+#if statements looking for each roster
+
+
+make list into list
+# return list of lists
     return []
 
 
