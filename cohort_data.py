@@ -1,25 +1,28 @@
-"""Functions to parse a file containing student data."""
+# """Functions to parse a file containing student data."""
 
+# def all_houses(filename):
+#     """Return a set of all house names in the given file.
 
-def all_houses(filename):
-    """Return a set of all house names in the given file.
+#     For example:
+#       >>> unique_houses('cohort_data.txt')
+#       {"Dumbledore's Army", 'Gryffindor', ..., 'Slytherin'}
 
-    For example:
-      >>> unique_houses('cohort_data.txt')
-      {"Dumbledore's Army", 'Gryffindor', ..., 'Slytherin'}
+#     Arguments:
+#       - filename (str): the path to a data file
 
-    Arguments:
-      - filename (str): the path to a data file
-
-    Return:
-      - set[str]: a set of strings
-    """
-
-    houses = set()
-
-    # TODO: replace this with your code
-
-    return houses
+#     Return:
+#       - set[str]: a set of strings
+#     """
+# #houses = set()
+# #open the filename
+#   #the_file = open(filename)
+#   house_name = []
+#   for line in the_file:
+#     record = [the_file.split("|")]
+#     house_name.append(record[2])
+  
+#   houses = set(house_name)
+#   return houses
 
 
 def students_by_cohort(filename, cohort="All"):
@@ -49,12 +52,25 @@ def students_by_cohort(filename, cohort="All"):
     Return:
       - list[list]: a list of lists
     """
-
-    students = []
+    # create variable, assign to empty list
+    student_list = []
+    # variable is openfile function w/parameter
+    the_file = open(filename)
+    
+    # for loop to iterate over every line in 'the_file'
+    for line in the_file:
+      # create a list from each line..
+      record = [the_file.split("|")]
+      # if conditional, if index 2 is equal to cohort given in argument
+      if cohort in record[-1]:
+      # if cohort="All" == record[-1]:
+      # append to student_list and concatenate index 0(first_name) and 1(last_name)
+        student_list.append(record[0] + record[1])
+    #students = []
 
     # TODO: replace this with your code
 
-    return sorted(students)
+    return sorted(student_list)
 
 
 def all_names_by_house(filename):
