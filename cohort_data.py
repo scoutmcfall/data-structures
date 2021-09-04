@@ -18,8 +18,9 @@ def all_houses(filename):
   the_file = open(filename)
   house_name = []
   for line in the_file:
-    record = [the_file.split("|")]
-    house_name.append(record[2])
+    record = line.split("|")
+    if record[2] not in '':
+      house_name.append(record[2])
   
   houses = set(house_name)
   return houses
@@ -73,53 +74,79 @@ def students_by_cohort(filename, cohort="All"):
 
 
 def all_names_by_house(filename):
-    """Return a list that contains rosters for all houses, ghosts, instructors.
+  """Return a list that contains rosters for all houses, ghosts, instructors.
 
-    Rosters appear in this order:
-    - Dumbledore's Army
-    - Gryffindor
-    - Hufflepuff
-    - Ravenclaw
-    - Slytherin
-    - Ghosts
-    - Instructors
+  Rosters appear in this order:
+  - Dumbledore's Army
+  - Gryffindor
+  - Hufflepuff
+  - Ravenclaw
+  - Slytherin
+  - Ghosts
+  - Instructors
 
-    Each roster is a list of names sorted in alphabetical order.
+  Each roster is a list of names sorted in alphabetical order.
 
-    For example:
-      >>> rosters = hogwarts_by_house('cohort_data.txt')
-      >>> len(rosters)
-      7
+  For example:
+    >>> rosters = hogwarts_by_house('cohort_data.txt')
+    >>> len(rosters)
+    7
 
-      >>> rosters[0]
-      ['Alicia Spinnet', ..., 'Theodore Nott']
-      >>> rosters[-1]
-      ['Filius Flitwick', ..., 'Severus Snape']
+    >>> rosters[0]
+    ['Alicia Spinnet', ..., 'Theodore Nott']
+    >>> rosters[-1]
+    ['Filius Flitwick', ..., 'Severus Snape']
 
-    Arguments:
-      - filename (str): the path to a data file
+  Arguments:
+    - filename (str): the path to a data file
 
-    Return:
-      - list[list]: a list of lists
-    """
+  Return:
+    - list[list]: a list of lists
+  """
+  dumbledores_army = []
+  gryffindor = []
+  hufflepuff = []
+  ravenclaw = []
+  slytherin = []
+  ghosts = []
+  instructors = []
 
-    dumbledores_army = []
-    gryffindor = []
-    hufflepuff = []
-    ravenclaw = []
-    slytherin = []
-    ghosts = []
-    instructors = []
+    
 #open the file
-
+  the_file = open(filename)
 #for loop that splits each line into a list
-
+  for line in the_file:
+    roster = [the_file.split("|")]
+  # 
+    if "Dumbledores Army" in roster[2]:
+      dumbledores_army.append(roster[0] + roster[1])
+    if "Gryffindor" in roster[2]:
+      gryffindor.append(roster[0] + roster[1])
+    if "Hufflepuff" in roster[2]:
+      hufflepuff.append(roster[0] + roster[1])
+    if "Ravenclaw" in roster[2]:
+      ravenclaw.append(roster[0] + roster[1])
+    if "Slytherin" in roster[2]:
+      slytherin.append(roster[0] + roster[1])
+    if "Ghosts" in roster[2]:
+      ghosts.append(roster[0] + roster[1])
+    if "Instructors" in roster[2]:
+      instructors.append(roster[0] + roster[1])
+    # if house in roster[2]:
+       #house.append()
 #if statements looking for each roster
+#if record[2] in "Dumbledore's Army":
+  #dumbledores_army.append(record[0]+record[1])
+# if dumbledores_army in roster[2]:
+# append name ([0] + [1])
+# if gryffindor in roster[2]
+# etc.
 
+  all_lists = [dumbledores_army, gryffindor, hufflepuff, ravenclaw, slytherin, ghosts, instructors]
 
-make list into list
+#make list into list
 # return list of lists
-    return []
+  return all_lists
 
 
 def all_data(filename):
